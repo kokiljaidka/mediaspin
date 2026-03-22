@@ -4,14 +4,6 @@
 
 A large-scale language resource capturing how major news outlets modify headlines after publication, annotated with 13 types of media bias. Includes **MediaSpin-in-the-Wild**, a companion dataset linking revised headlines to downstream engagement on X (Twitter).
 
-Please cite us!:
-@inproceedings{vermajaidka2026mediaspin,
-  author    = {Preetika Verma and Kokil Jaidka},
-  title     = {The MediaSpin Dataset: Post-Publication News Headline Edits Annotated for Media Bias},
-  booktitle = {Proceedings of the International AAAI Conference on Web and Social Media},
-  year      = {2026},
-  note      = {Accepted to ICWSM 2026}
-}
 
 ## Dataset
 
@@ -19,7 +11,22 @@ Please cite us!:
 - **13 bias categories**: spin, unsubstantiated claims, opinion-as-fact, sensationalism, mudslinging, mind reading, slant, flawed logic, omission, omission of source attribution, story choice/placement, subjective adjectives, word choice
 - **180,786 news-related tweets** from 819 consenting users (MediaSpin-in-the-Wild)
 
-**Download:** [MediaSpin Dataset](https://anonymous.4open.science/r/mediaspin-A5C7)
+**Download:** [MediaSpin Dataset (Harvard Dataverse)](https://doi.org/10.7910/DVN/MOCQTZ)
+
+
+## Citation
+
+If you use MediaSpin in your research, please cite:
+
+```
+@inproceedings{vermajaidka2026mediaspin,
+  author    = {Preetika Verma and Kokil Jaidka},
+  title     = {The MediaSpin Dataset: Post-Publication News Headline Edits Annotated for Media Bias},
+  booktitle = {Proceedings of the International AAAI Conference on Web and Social Media},
+  year      = {2026},
+  note      = {Accepted to ICWSM 2026}
+}
+```
 
 ### Outlets
 
@@ -58,6 +65,23 @@ mediaspin/
 │   ├── match_public.py             # Fuzzy-match headlines to tweets (rapidfuzz)
 │   ├── match_to_metric.R           # String-distance matching (R version)
 │   └── engagement_figure.R         # Engagement figure (Figure 3)
+│
+├── python/                         # Python annotation package
+│   ├── mediaspin/
+│   │   ├── __init__.py
+│   │   ├── annotate.py             # annotate_bias(), annotate_batch()
+│   │   └── prompt.py               # Exact prompt from Figure 1
+│   ├── pyproject.toml
+│   └── README.md
+│
+├── R/                              # R annotation package
+│   ├── R/
+│   │   ├── annotate.R              # annotate_bias(), annotate_batch()
+│   │   ├── parse.R                 # parse_bias_response()
+│   │   └── prompt.R                # mediaspin_prompt()
+│   ├── DESCRIPTION
+│   ├── NAMESPACE
+│   └── README.md
 │
 └── README.md
 ```
@@ -105,6 +129,42 @@ The 13 bias categories are divided into two groups:
 **Objective bias** (structural/evidentiary):
 - Unsubstantiated Claims, Slant, Flawed Logic, Omission, Omission of Source Attribution, Story Choice/Placement
 
+## Annotation Packages
+
+We provide standalone packages in Python and R that wrap the MediaSpin annotation pipeline. Both use the exact prompt from Figure 1 of the paper and require your own OpenAI API key.
+
+### Python
+
+```bash
+cd python && pip install -e .
+```
+
+```python
+from mediaspin import annotate_bias
+
+result = annotate_bias(
+    original="Asia hit by Wall St's tumble",
+    edited="Savaged global stocks head for worst week since 2011",
+    api_key="sk-..."
+)
+result["bias_analysis"]["Bias by Omission"]  # {"value": "Added", "reason": "..."}
+```
+
+### R
+
+```r
+devtools::install_local("R/")
+library(mediaspin)
+
+result <- annotate_bias(
+    original = "Asia hit by Wall St's tumble",
+    edited = "Savaged global stocks head for worst week since 2011"
+)
+result[["Bias by Omission"]]$value  # "Added"
+```
+
+See [`python/README.md`](python/README.md) and [`R/README.md`](R/README.md) for full documentation.
+
 ## Requirements
 
 ### Python
@@ -119,19 +179,6 @@ python -m spacy download en_core_web_sm
 ### R
 ```
 dplyr, tidyr, ggplot2, stringr, scales, countrycode, stringdist, broom, purrr, rlang
-```
-
-## Citation
-
-If you use MediaSpin in your research, please cite:
-
-```
-@inproceedings{verma2026mediaspin,
-  title={MediaSpin: Exploring Media Bias Through Fine-Grained Analysis of News Headlines},
-  author={Verma, Preetika and Jaidka, Kokil},
-  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
-  year={2026}
-}
 ```
 
 ## License
