@@ -4,6 +4,15 @@
 
 A large-scale language resource capturing how major news outlets modify headlines after publication, annotated with 13 types of media bias. Includes **MediaSpin-in-the-Wild**, a companion dataset linking revised headlines to downstream engagement on X (Twitter).
 
+Please cite us!:
+@inproceedings{vermajaidka2026mediaspin,
+  author    = {Preetika Verma and Kokil Jaidka},
+  title     = {MediaSpin: Exploring Media Bias Through Fine-Grained Analysis of News Headlines},
+  booktitle = {Proceedings of the International AAAI Conference on Web and Social Media},
+  year      = {2026},
+  note      = {Accepted to ICWSM 2026}
+}
+
 ## Dataset
 
 - **78,910 headline pairs** (original + edited) from 5 English-language outlets
