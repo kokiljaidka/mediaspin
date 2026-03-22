@@ -1,0 +1,12 @@
+export(annotate_bias)
+export(annotate_batch)
+export(parse_bias_response)
+export(mediaspin_prompt)
+
+importFrom(httr2, request)
+importFrom(httr2, req_headers)
+importFrom(httr2, req_body_json)
+importFrom(httr2, req_perform)
+importFrom(httr2, resp_body_json)
+importFrom(jsonlite, toJSON)
+importFrom(jsonlite, fromJSON)

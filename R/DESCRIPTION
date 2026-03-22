@@ -1,0 +1,18 @@
+Package: mediaspin
+Title: Annotation Pipeline for Media Bias Detection in News Headline Edits
+Version: 0.1.0
+Authors@R: c(
+    person("Preetika", "Verma", role = c("aut")),
+    person("Kokil", "Jaidka", role = c("aut", "cre"), email = "kokil.jaidka@gmail.com")
+  )
+Description: Provides an annotation pipeline for detecting 13 types of media bias
+    in news headline edits. Uses the OpenAI API to analyze word-level changes
+    between original and edited headlines, identifying bias patterns such as spin,
+    sensationalism, omission, and more.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Imports:
+    httr2,
+    jsonlite

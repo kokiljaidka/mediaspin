@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mediaspin"
+version = "0.1.0"
+description = "Annotation pipeline for detecting media bias in news headline edits"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Preetika Verma"},
+    {name = "Kokil Jaidka"},
+]
+dependencies = [
+    "openai>=1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/mediaspin/mediaspin"
