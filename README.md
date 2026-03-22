@@ -1,13 +1,13 @@
 # MediaSpin
 
-**MediaSpin: Exploring Media Bias Through Fine-Grained Analysis of News Headlines**
+**MediaSpin: A Dataset of Post-Publication News Headline Edits Annotated for Media Bias **
 
 A large-scale language resource capturing how major news outlets modify headlines after publication, annotated with 13 types of media bias. Includes **MediaSpin-in-the-Wild**, a companion dataset linking revised headlines to downstream engagement on X (Twitter).
 
 Please cite us!:
 @inproceedings{vermajaidka2026mediaspin,
   author    = {Preetika Verma and Kokil Jaidka},
-  title     = {MediaSpin: Exploring Media Bias Through Fine-Grained Analysis of News Headlines},
+  title     = {The MediaSpin Dataset: Post-Publication News Headline Edits Annotated for Media Bias},
   booktitle = {Proceedings of the International AAAI Conference on Web and Social Media},
   year      = {2026},
   note      = {Accepted to ICWSM 2026}
