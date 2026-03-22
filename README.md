@@ -64,7 +64,7 @@ mediaspin/
 ├── mediaspin-in-the-wild/          # Step 4: Engagement analysis
 │   ├── match_public.py             # Fuzzy-match headlines to tweets (rapidfuzz)
 │   ├── match_to_metric.R           # String-distance matching (R version)
-│   └── engagement_figure.R         # Engagement figure (Figure 3)
+│   └── mediaspinv2.R               # Engagement figure (Figure 3)
 │
 ├── python/                         # Python annotation package
 │   ├── mediaspin/
